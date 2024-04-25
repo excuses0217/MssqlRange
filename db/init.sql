@@ -1,8 +1,8 @@
-IF DB_ID('product') IS NULL
-    CREATE DATABASE product;
+IF DB_ID('test') IS NULL
+    CREATE DATABASE test;
 GO
 
-USE product;
+USE test;
 GO
 
 IF OBJECT_ID('product', 'U') IS NULL
