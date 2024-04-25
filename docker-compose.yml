@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    build: ./db
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: p@ssw0rd123
+    ports:
+      - "1433:1433"
+
+  web:
+    build: ./app
+    environment:
+      DATABASE_URL: "mssql+pyodbc://sa:p@ssw0rd123@db:1433/product?driver=ODBC+Driver+17+for+SQL+Server"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
